@@ -1,2 +1,3 @@
-*.iml
+thoth.iml
 .idea
+target

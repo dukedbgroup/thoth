@@ -7,6 +7,13 @@
     <groupId>dukedb</groupId>
     <artifactId>thoth</artifactId>
     <version>1.0-SNAPSHOT</version>
+    <dependencies>
+        <dependency>
+            <groupId>com.jcraft</groupId>
+            <artifactId>jsch</artifactId>
+            <version>0.1.54</version>
+        </dependency>
+    </dependencies>
 
 
 </project>
