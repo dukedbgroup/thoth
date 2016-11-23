@@ -1,0 +1,17 @@
+<?xml version="1.0"?>
+<configuration>
+    <property>
+        <name>thoth.master.slaveName</name>
+        <value>ubuntu</value>
+        <description>
+            user name when logging into slave machines
+        </description>
+    </property>
+    <property>
+        <name>thoth.master.pemPath</name>
+        <value>/Users/zbd1023/.ssh/EC2.pem</value>
+        <description>
+            absolute path of EC2 keypair
+        </description><!--no longer used; multi setup is assumed-->
+    </property>
+</configuration>
