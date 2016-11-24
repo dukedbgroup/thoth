@@ -18,7 +18,7 @@ public class PidstatCollector {
 
         public void run(){
             try {
-                ProcessBuilder pb = new ProcessBuilder("/usr/bin/pidstat", command, "-G", "java", String.valueOf(interval));
+                ProcessBuilder pb = new ProcessBuilder("/usr/bin/pidstat", command, "-h", "-C", "java", String.valueOf(interval));
                 System.out.println("starting process");
                 Process process = pb.start();
                 int errCode = process.waitFor();
@@ -26,6 +26,8 @@ public class PidstatCollector {
                 String content = output(process.getInputStream());
                 Parser parser = new Parser(command, content);
                 parser.parse();
+                parser.writePidFiles();
+                parser.writeRawRowsToFile();
             } catch (IOException e) {
                 e.printStackTrace();
             } catch (InterruptedException e) {
@@ -61,12 +63,8 @@ public class PidstatCollector {
 
     public static void main(String[] arg){
         int interval = 1;
-        myThread t1 = new myThread("-u" , interval);
+        myThread t1 = new myThread("-urd" , interval);
         t1.start();
-        myThread t2 = new myThread("-r", interval);
-        t2.start();
-        myThread t3 = new myThread("-d", interval);
-        t3.start();
 
     }
 
